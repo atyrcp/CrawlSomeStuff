@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     func scrapeInstagramData(from url: String) {
         let baseURL = "https://www.instagram.com/"
         guard let url = URL(string: baseURL + url) else {return}
+//        guard let url = URL(string: url) else {return}
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else {return}
