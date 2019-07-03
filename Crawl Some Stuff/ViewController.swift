@@ -20,7 +20,13 @@ class ViewController: UIViewController {
             guard let htmlString = String(data: data, encoding: .utf8) else {return}
             
             print(htmlString)
-            
+            let leftSideString = """
+  """
+            let rightSideString = """
+  """
+            let rangeOfTheData = leftSideString.uppercased..<rightSideString.lowercased
+                    let valueWeWantToGrab = htmlString[rangeOfTheData]
+                    print(valueWeWantToGrab)
         }
         
         task.resume()
