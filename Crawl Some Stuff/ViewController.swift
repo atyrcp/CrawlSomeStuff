@@ -39,6 +39,14 @@ class ViewController: UIViewController {
         
         scrapeInstagramData(from: "nasa")
         // Do any additional setup after loading the view.
+        
+        //git testing here
+        print("git branch develop")
+        
+        //test create a sub01 branch under develop branch
+        print("git checkout -b sub01 develop")
+        
+        
     }
 
 
