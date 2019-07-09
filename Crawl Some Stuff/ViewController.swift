@@ -24,9 +24,10 @@ class ViewController: UIViewController {
   """
             let rightSideString = """
   """
-            let rangeOfTheData = leftSideString.uppercased..<rightSideString.lowercased
-                    let valueWeWantToGrab = htmlString[rangeOfTheData]
+            let rangeOfTheData = leftSideString.uppercased()..<rightSideString.lowercased()
+                    let valueWeWantToGrab = htmlString
                     print(valueWeWantToGrab)
+            print(rangeOfTheData)
         }
         
         task.resume()
