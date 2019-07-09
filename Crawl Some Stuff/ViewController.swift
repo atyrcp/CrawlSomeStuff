@@ -43,6 +43,9 @@ class ViewController: UIViewController {
         //git testing here
         print("git branch develop")
         
+        //test create a sub01 branch under develop branch
+        print("git checkout -b sub01 develop")
+        
         
     }
 
