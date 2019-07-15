@@ -53,13 +53,34 @@ class ViewController: UIViewController {
         //test add sub02 branch and push it
         print("git checkout -b sub02 develop2")
         
-        let con: [String: Any] = ["ss": 1]
-        let con2 = con as [String: AnyObject]
-        let ans = con2["ss"] as? String != nil ? "3": "4"
+        let con: [String: Any] = ["ss": 1, "dd": "5"]
+        let con2 = con as [String: Any]
+        let ans1 = con2["ss"] as? String != nil ? "3": "4"
         print("---")
-        print(type(of: ans))
-        print(ans)
+        print(ans1)
+        print(type(of: ans1))
         print("---")
+        
+        print("===")
+        let ans2 = con2["dd"]
+        print(ans2)
+        print(type(of: ans2))
+        
+        print("===")
+        let ans2String = con2["dd"] as? String
+        print(ans2String)
+        print(type(of: ans2String))
+        
+        
+        print("===")
+        let ans2Int = con2["dd"] as? Int
+        print(ans2Int)
+        print(type(of: ans2Int))
+        print("===")
+        
+        
+        let ans3 = con2["dd"] as? String ?? "0"
+        print(ans3)
     }
 
 
