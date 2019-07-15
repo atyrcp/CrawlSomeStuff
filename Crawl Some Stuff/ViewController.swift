@@ -19,7 +19,7 @@ class ViewController: UIViewController {
             guard let data = data else {return}
             guard let htmlString = String(data: data, encoding: .utf8) else {return}
             
-            print(htmlString)
+//            print(htmlString)
             let leftSideString = """
   """
             let rightSideString = """
@@ -53,12 +53,13 @@ class ViewController: UIViewController {
         //test add sub02 branch and push it
         print("git checkout -b sub02 develop2")
         
-        let con: [String: AnyObject] = ["ss": 1 as AnyObject]
-        let ans = con["ss"] as? String
+        let con: [String: Any] = ["ss": 1]
+        let con2 = con as [String: AnyObject]
+        let ans = con2["ss"] as? String != nil ? "3": "4"
         print("---")
+        print(type(of: ans))
         print(ans)
         print("---")
-
     }
 
 
