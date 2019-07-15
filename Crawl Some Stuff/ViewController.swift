@@ -24,10 +24,10 @@ class ViewController: UIViewController {
   """
             let rightSideString = """
   """
-            let rangeOfTheData = leftSideString.uppercased()..<rightSideString.lowercased()
-                    let valueWeWantToGrab = htmlString
-                    print(valueWeWantToGrab)
-            print(rangeOfTheData)
+//            let rangeOfTheData = leftSideString.uppercased()..<rightSideString.lowercased()
+//                    let valueWeWantToGrab = htmlString
+//                    print(valueWeWantToGrab)
+//            print(rangeOfTheData)
         }
         
         task.resume()
@@ -52,6 +52,12 @@ class ViewController: UIViewController {
         
         //test add sub02 branch and push it
         print("git checkout -b sub02 develop2")
+        
+        let con: [String: AnyObject] = ["ss": 1 as AnyObject]
+        let ans = con["ss"] as? String
+        print("---")
+        print(ans)
+        print("---")
 
     }
 
