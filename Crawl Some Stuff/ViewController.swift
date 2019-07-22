@@ -83,6 +83,12 @@ class ViewController: UIViewController {
         print(ans3)
         print("---")
         
+        let a: AnyObject? = UIView()
+        let b = a as? String ?? "abc"
+        
+        let c: Any? = 5
+        let d = String(c)
+        let e = String(a)
     }
 
 
