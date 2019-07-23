@@ -87,10 +87,20 @@ class ViewController: UIViewController {
         let b = a as? String ?? "abc"
         
         let c: Any? = 5
-        let d = String(c)
-        let e = String(a)
+//        let d = String(c)
+//        let e = String(a)
+        
+        let jsonString = """
+{"name": "aaa", "id": 1}
+"""
+
+        let mock = MockData(jsonString: jsonString)
+        print(mock)
+        
+        print("!!!")
+        print(mock?.name)
+        print("!!!")
+        
     }
-
-
 }
 
