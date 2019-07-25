@@ -101,6 +101,19 @@ class ViewController: UIViewController {
         print(mock?.name)
         print("!!!!")
         
+        
+        let dictionaryData: [String : String] = ["5"  : "Five",
+                                                 "6"  : "Siv",
+                                                 "7"  : "Seven",
+                                                 "1"  : "One",
+                                                 "2"  : "Two",
+                                                 "3"  : "Three",
+                                                 "4"  : "Four",
+                                                 "8"  : "Eight"]
+        
+        let sortedByKey = dictionaryData.keys.sorted(by: >)
+        
+        print(sortedByKey)
     }
 }
 
