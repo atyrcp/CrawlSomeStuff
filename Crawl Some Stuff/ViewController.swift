@@ -111,7 +111,7 @@ class ViewController: UIViewController {
                                                  "4"  : "Four",
                                                  "8"  : "Eight"]
         
-        let sortedByKey = dictionaryData.keys.sorted(by: >)
+        let sortedByKey = dictionaryData.keys.sorted(by: <)
         
         print(sortedByKey)
     }
