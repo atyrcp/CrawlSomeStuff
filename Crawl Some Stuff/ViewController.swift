@@ -97,9 +97,9 @@ class ViewController: UIViewController {
         let mock = MockData(jsonString: jsonString)
         print(mock)
         
-        print("!!!!")
+        print("!!!!!")
         print(mock?.name)
-        print("!!!!")
+        print("!!!!!")
         
         
         let dictionaryData: [String : String] = ["5"  : "Five",
