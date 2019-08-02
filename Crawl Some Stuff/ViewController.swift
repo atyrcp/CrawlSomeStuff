@@ -51,18 +51,18 @@ class ViewController: UIViewController {
         
         var vid = Video()
         
-        vid.id = 2
-        
+//        vid.id = 2
+        let id = vid.id
         
         var dataBase = DataBase(vid: vid)
         
-        dataBase.vid.id = 1
+//        dataBase.vid.id = 1
     }
 }
 
 class Video {
     let name: String = "name"
-    var id: Int = 1
+    private(set) var id: Int = 1
 }
 
 struct DataBase {
