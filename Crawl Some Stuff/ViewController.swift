@@ -48,6 +48,23 @@ class ViewController: UIViewController {
         print("git test 4")
         
         print("git test 5-1")
+        
+        var vid = Video()
+        
+        vid.id = 2
+        
+        
+        var dataBase = DataBase(vid: vid)
+        
+        dataBase.vid.id = 1
     }
 }
 
+class Video {
+    let name: String = "name"
+    var id: Int = 1
+}
+
+struct DataBase {
+    var vid: Video
+}
