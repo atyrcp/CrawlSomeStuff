@@ -68,3 +68,4 @@ class Video {
 struct DataBase {
     var vid: Video
 }
+
