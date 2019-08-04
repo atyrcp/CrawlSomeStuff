@@ -56,6 +56,8 @@ class ViewController: UIViewController {
         
         var dataBase = DataBase(vid: vid)
         
+        
+        
 //        dataBase.vid.id = 1
     }
 }
