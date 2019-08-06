@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var testLabel: UILabel!
     
     func scrapeInstagramData(from url: String) {
         let baseURL = "https://www.instagram.com/"
@@ -55,6 +56,12 @@ class ViewController: UIViewController {
         let id = vid.id
         
         var dataBase = DataBase(vid: vid)
+        
+        print("------")
+        print(testLabel.text)
+        testLabel.text = nil
+        print(testLabel.text)
+        print(testLabel.frame)
         
 //        dataBase.vid.id = 1
     }
