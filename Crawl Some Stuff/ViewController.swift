@@ -38,7 +38,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrapeInstagramData(from: "nasa")
-        
+        let userStore = UserDefaults.standard
+//        userStore.set(9876, forKey: "num")
+//        userStore.set(false, forKey: "boo")
+        userStore.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        let ans = userStore.value(forKey: "num")
+        print(ans)
         
         print("git test 1")
         
