@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         let userStore = UserDefaults.standard
 //        userStore.set(9876, forKey: "num")
 //        userStore.set(false, forKey: "boo")
-        userStore.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+//        userStore.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         let ans = userStore.value(forKey: "num")
         print(ans)
         
@@ -79,5 +79,20 @@ class Video {
 
 struct DataBase {
     var vid: Video
+    
+    
 }
 
+
+class Test {
+    var name: String?
+    
+    
+    init() {
+        name = ""
+    }
+}
+
+class Tess: Test {
+    
+}
