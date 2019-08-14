@@ -7,92 +7,78 @@
 //
 
 import UIKit
+import SafariServices
+import AuthenticationServices
 
 class ViewController: UIViewController {
     @IBOutlet weak var testLabel: UILabel!
     
-    func scrapeInstagramData(from url: String) {
-        let baseURL = "https://www.instagram.com/"
-        guard let url = URL(string: baseURL + url) else {return}
-//        guard let url = URL(string: url) else {return}
+    var authSession: ASWebAuthenticationSession?
+    
+    func getAuthTokenWithWebLogin() {
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else {return}
-            guard let htmlString = String(data: data, encoding: .utf8) else {return}
+        let authURL = URL(string: "https://apistage2.aisleconnect.us/ac.server/oauth/token")
+//        let authURL = URL(string: "https://apistage2.aisleconnect.us/ac.server/oauth/token/?grant_type=password&username= paul.lin@lineagenetworks.com&password=welcome1&client_id=my-client&my-secret=my-secret&scope=read")
+//        let authURL = URL(string: "https://apistage2.aisleconnect.us/ac.server/oauth/token?grant_type=password&username=paul.lin@lineagenetworks.com&password=welcome1&client_id=my-client&client_secret=my-secret&scope=read&method=POST")
+        
+//        let authURL = URL(string: "https://apistage2.aisleconnect.us/ac.server/oauth/token?grant_type=<password>?username= <paul.lin@lineagenetworks.com>?password=<welcome1>?client_id=<my-client>?my-secret=<my-secret>?scope=<read>")
+        
+        let callbackUrlScheme = "Crawl Some Stuff://auth"
+        
+        self.authSession = ASWebAuthenticationSession.init(url: authURL!, callbackURLScheme: callbackUrlScheme, completionHandler: { (callBack:URL?, error:Error?) in
             
-//            print(htmlString)
-            let leftSideString = """
-  """
-            let rightSideString = """
-  """
-//            let rangeOfTheData = leftSideString.uppercased()..<rightSideString.lowercased()
-//                    let valueWeWantToGrab = htmlString
-//                    print(valueWeWantToGrab)
-//            print(rangeOfTheData)
-        }
+            // handle auth response
+            guard error == nil, let successURL = callBack else {
+                return
+            }
+            
+            let oauthToken = NSURLComponents(string: (successURL.absoluteString))?.queryItems?.filter({$0.name == "code"}).first
+            
+            // Do what you now that you've got the token, or use the callBack URL
+            print(oauthToken ?? "No OAuth Token")
+        })
         
-        task.resume()
+        // Kick it off
+        self.authSession?.start()
     }
+    
+    
+//    func scrapeInstagramData(from url: String) {
+//        let baseURL = "https://www.instagram.com/"
+//        guard let url = URL(string: baseURL + url) else {return}
+////        guard let url = URL(string: url) else {return}
+//
+//        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            guard let data = data else {return}
+//            guard let htmlString = String(data: data, encoding: .utf8) else {return}
+//
+////            print(htmlString)
+//            let leftSideString = """
+//  """
+//            let rightSideString = """
+//  """
+////            let rangeOfTheData = leftSideString.uppercased()..<rightSideString.lowercased()
+////                    let valueWeWantToGrab = htmlString
+////                    print(valueWeWantToGrab)
+////            print(rangeOfTheData)
+//        }
+//
+//        task.resume()
+//    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrapeInstagramData(from: "nasa")
-        let userStore = UserDefaults.standard
-//        userStore.set(9876, forKey: "num")
-//        userStore.set(false, forKey: "boo")
-//        userStore.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        let ans = userStore.value(forKey: "num")
-        print(ans)
         
-        print("git test 1")
+//        getAuthTokenWithWebLogin()
         
-        print("git test 2")
+        let network = Network()
+
+        network.getSome { (daa) in
+            print(daa)
+        }
         
-        print("git test 3")
         
-        print("git test 4")
         
-        print("git test 5-1")
-        
-        var vid = Video()
-        
-//        vid.id = 2
-        let id = vid.id
-        
-        var dataBase = DataBase(vid: vid)
-        
-        print("------")
-        print(testLabel.text)
-        testLabel.text = nil
-        print(testLabel.text)
-        print(testLabel.frame)
-        
-//        dataBase.vid.id = 1
     }
-}
-
-class Video {
-    let name: String = "name"
-    private(set) var id: Int = 1
-}
-
-struct DataBase {
-    var vid: Video
-    
-    
-}
-
-
-class Test {
-    var name: String?
-    
-    
-    init() {
-        name = ""
-    }
-}
-
-class Tess: Test {
-    
 }
