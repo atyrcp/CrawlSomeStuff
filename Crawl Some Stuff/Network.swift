@@ -12,11 +12,9 @@ class Network {
     
     
     func getSome(success: @escaping (Data) -> Void) {
-        let endPoint = "https://apistage2.aisleconnect.us/ac.server/rest/v2.5/checklist/:id"
-//        let info = "grant_type=password&username=paul.lin@lineagenetworks.com&password=welcome1&client_id=my-client&client_secret=my-secret&scope=read&method=POST"
-        let paramater = ":id"
+        let endPoint = "https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.gz"
         let url = URL(string: endPoint)
-        var request = URLRequest(url: url!)
+        let request = URLRequest(url: url!)
 //        request.httpMethod = "POST"
 //        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 //        request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -30,7 +28,7 @@ class Network {
             }
             
             if response != nil {
-                print(response)
+//                print(response)
             }
             
             if data != nil {
