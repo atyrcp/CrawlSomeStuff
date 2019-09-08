@@ -17,7 +17,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let network = Network()
-
+        
+        print(C.c0)
+        print(C().c0)
 //        network.getSome { (daa) in
 //            print("got")
 //            print(daa)
@@ -56,4 +58,10 @@ class B {
     func setA() {
         a.num = 2
     }
+}
+
+class C {
+    static var c0 = 3
+    var c0 = 4
+    let c2 = 5
 }
