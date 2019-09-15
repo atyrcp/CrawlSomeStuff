@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         print(C().c0)
         
         print("last push before work")
+        
+        
 //        network.getSome { (daa) in
 //            print("got")
 //            print(daa)
